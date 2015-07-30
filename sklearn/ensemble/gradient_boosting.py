@@ -750,7 +750,7 @@ class BaseGradientBoosting(six.with_metaclass(ABCMeta, BaseEnsemble,
 
             # induce regression tree on residuals
             if self.tree_params_producer:
-                tree_params_dict = tree_params_producer[i]
+                tree_params_dict = self.tree_params_producer(i)
                 tree = DecisionTreeRegressor(
                     criterion=criterion,
                     splitter=splitter,
